@@ -1,6 +1,5 @@
 function [absdist] = Results(origimg, reimg, pos, baseline)
 
-
 if nargin < 4
     baseline = false;
 end
@@ -25,34 +24,5 @@ end
 % Compute closeness metrics
 mse = sqrt(mean2((mat2gray(origimg)-mat2gray(reimg)).^2));  % MSE
 absdist = mean2(abs(mat2gray(origimg)-mat2gray(reimg)));    % Absolute Distance
-
-% Closeness message
-% closenessmsg = ['The distance between the reconstructed image and the original image is - MSE: ',...
-%     num2str(mse), ', Absolute Distance: ', num2str(absdist),'.'];
-% disp(closenessmsg)
-% 
-% allpoints = zeros(size(origimg))';
-% allpoints(pos)=origimg(pos);
-
-% Display the results of the procedure
-% subplot(2, 2, 1)
-% imshow(mat2gray(origimg))
-% title('Original Image')
-% subplot(2, 2, 2)
-% imshow(mat2gray(reimg))
-% title('Compressed Image')
-% subplot(2, 2, 3)
-% imshow(mat2gray(abs(origimg-reimg)));
-% title('Difference between the Original and Compressed Image')
-% subplot(2, 2, 4)
-% imshow(allpoints')
-% title('All the initial points')
-
-% subplot(3, 2, 5)
-% imshow(mat2gray(baseline))
-% title('MATLAB Interpolation')
-% subplot(3, 2, 6)
-% imshow(mat2gray(abs(origimg-baseline)));
-% title('Difference between the Original and MATLAB Interpolation')
 
 end

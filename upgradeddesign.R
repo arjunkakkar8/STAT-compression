@@ -27,7 +27,7 @@ ggplot(aes(x = compression, y = propedge, color = thickness), data = design) +
 plot(optdes$design$compression, optdes$design$propedge)
 
 # Actual design that was run
-setwd("~/Desktop/STAT-compression")
+setwd("~/STAT-compression")
 design <- read.csv('newdesign.csv', header = FALSE)
 
 m <- mapply(c,design[,1:3], design[,4:6], design[,7:9], design[,10:12], design[,13:15],
@@ -83,6 +83,8 @@ timethick3 <- function(c, p){
 
 cvals = seq(0.2, 0.8, 0.01)
 pvals = seq(0, 0.9, 0.01)
+
+par(mfrow=c(2,3))
 
 contour(cvals, pvals, outer(cvals, pvals, msethick1))
 contour(cvals, pvals, outer(cvals, pvals, msethick2))
@@ -211,13 +213,9 @@ cost <- function(mse, time){
   return(f1+f2+f3) 
 }
   
-mutate(simresults, randcost = mapply(cost, simresults$randmse, simresults$randtime), optcost = mapply(cost, simresults$optmse, simresults$opttime))%>%
-  group_by(block) %>%
+group_by(simresults, block) %>%
   summarize(mean(randmse)-mean(optmse), mean(randtime)-mean(opttime))
 
 mutate(simresults, randcost = mapply(cost, simresults$randmse, simresults$randtime), optcost = mapply(cost, simresults$optmse, simresults$opttime))%>%
-  summarize(mean(randmse),mean(optmse), mean(randtime),mean(opttime), mean(randcost), mean(optcost), mean(cost))
-
-
-round(optimumsettings$comp,3)==c(0.356,0.578,0.698,0.608,0.476,0.668,0.482,0.788,0.512,0.626)
+  summarize(mean(randmse),mean(optmse), mean(randtime),mean(opttime), mean(randcost), mean(optcost))
 
