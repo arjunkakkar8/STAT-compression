@@ -1,0 +1,19 @@
+---
+title: 'Surrogate Modeling and Image Compression'
+author: "Arjun Kakkar"
+date: "12/15/2017"
+output: pdf_document
+abstract: "The objective of this project is to improve a compression decompression algorithm using the tools of statistical design and optimiziation. This is done by constructing an optimal block design with the parameters of the procedure as factors. Thus we have two quantitative variables and one categorical variable and we have two measured responses, the quality of the image and the time taken for computation. Using the results from conducting this experiment, we create response surfaces that approximate both response values in the enitre parameter space. These responce surfaces are simultaneuosly optimized by combining them into a cost function and once optimum values are found, the optimized procedure is tested to quantify improvements. Overall it is found that for a particular cost function, the procedure results in a 20% improvement in quality and 27% increase in computational time over the unoptimized procedure."
+---
+
+
+# PDE-based Image Compression
+Image compression and more broadly signal recovery problems are of great interest due to their promised savings. Furthermore, data corruption and partial data loss are problems encountered frequently and methods to effectively 'recover' the data are important. In different contexts one can make different assumptions about the nature of the underlying data in order to find the most optimal value to substitute the missing information with. In the context of image recovery, 
+
+# Design of Experiement
+
+# Creation of Response Surface
+
+# Optimization
+
+# Testing Performance
